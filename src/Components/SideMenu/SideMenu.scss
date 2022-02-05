@@ -1,0 +1,46 @@
+.home_icon {
+  height: 26px;
+}
+
+.sidemenu_container {
+  & li {
+    list-style-type: none; /* Убираем маркеры */
+  }
+}
+
+.sidemenu_button {
+  border-radius: 9999999px;
+  border: none;
+  background-color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  &:hover {
+    background-color: rgba(44, 119, 165, 0.1);
+  }
+}
+
+.sidemenu_button-tweet {
+  cursor: pointer;
+  width: 70%;
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 9999999px;
+  background-color: rgb(29, 155, 240);
+  color: white;
+  border: none;
+  &_text {
+    margin-right: 16px;
+    margin-left: 20px;
+    line-height: 24px;
+    font-size: 20px;
+    font-weight: 400;
+    // font-family: "Open Sans", sans-serif;
+    // color: red;
+  }
+  &:hover {
+    background-color: rgb(26, 140, 216);
+  }
+}

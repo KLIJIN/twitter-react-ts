@@ -1,0 +1,81 @@
+.login-modal {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px 30px;
+  position: relative;
+  width: 600px;
+  border-radius: 16px;
+}
+
+.login-modal__icon {
+  align-self: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 30px;
+}
+
+.login-modal__close {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  height: 20px;
+  width: 20px;
+  padding: 2px;
+}
+
+.login-modal__close:hover {
+  background-color: rgba(2, 2, 2, 0.05);
+  border-radius: 50%;
+}
+
+.login-modal__input_container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-modal__input {
+  width: 70%;
+  margin-bottom: 10px;
+  align-self: center;
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  padding: 4px 0 5px;
+  border: 0;
+  box-sizing: content-box;
+  background: none;
+  height: 1.4375em;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+}
+.login-modal__input:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #bdbdbd;
+  outline: 0;
+  border: none;
+  border-bottom: 2px solid #1a79da80;
+}
+
+.login-modal button {
+  left: 15%;
+  margin-top: 20px;
+  width: 70%;
+  border-radius: 9999px;
+}
+
+.login-modal__title {
+  color: rgb(15, 20, 25);
+  line-height: 28px;
+  font-size: 23px;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}

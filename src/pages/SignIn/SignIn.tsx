@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createStyles, makeStyles } from "@mui/styles";
 import { Theme } from "@mui/material/styles";
 import { Typography, Button } from "@mui/material";
@@ -7,8 +7,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import PeopleIcon from "@mui/icons-material/PeopleOutline";
 // import MessageIcon from '@mui/icons-material/ModeCommentOutlined';
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import LoginModal from "../../Components/LoginModal/LoginModal";
+import RegisterModal from "../../Components/RegisterModal/RegisterModal";
 
-const useStyles = makeStyles((theme: Theme) =>
+
+export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     wrapper: {
       display: "flex",
@@ -41,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
         display: "flex",
         alignItems: "center",
         color: "white",
-        fontWeight: 700,
+        // fontWeight: 700,
         fontSize: 20,
       },
     },
@@ -52,6 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: 32,
       marginRight: 15,
     },
+    // Login Side
     loginSide: {
       display: "flex",
       flexDirection: "column",
@@ -75,30 +79,44 @@ const useStyles = makeStyles((theme: Theme) =>
       marginBottom: 18,
     },
     registerField: {
-      marginBottom: theme.spacing(5),
+      marginBottom: 5,
     },
     loginFormControl: {
-      marginBottom: theme.spacing(2),
+      marginBottom: 18,
     },
   })
 );
 
 export const SignIn: React.FC = () => {
+  const [visibleModal, setVisibleModal] = useState<
+    "signIn" | "signUp" | undefined
+  >();
+
   const classes = useStyles();
+
   return (
     <div className={classes.wrapper}>
       <section className={classes.blueSide}>
-        <ul>
+        <TwitterIcon
+          color="primary"
+          className={classes.blueSideBigIcon}
+          style={{
+            width: "260%",
+            height: "260%",
+            zIndex: 0,
+          }}
+        />
+        <ul className={classes.blueSideListInfo}>
           <li className={classes.blueSideListInfoItem}>
             <Typography variant="h6">
               <SearchIcon className={classes.blueSideListInfoIcon} />
-              Читайте о том, что вам интересно.
+              Читайте о том, что вам интересно
             </Typography>
           </li>
           <li className={classes.blueSideListInfoItem}>
             <Typography variant="h6">
               <PeopleIcon className={classes.blueSideListInfoIcon} />
-              Узнайте, о чем говорят в мире.
+              Узнайте, о чем говорят в мире
             </Typography>
           </li>
           <li className={classes.blueSideListInfoItem}>
@@ -106,14 +124,17 @@ export const SignIn: React.FC = () => {
               <ChatBubbleOutlineOutlinedIcon
                 className={classes.blueSideListInfoIcon}
               />
-              Присоединяйтесь к общению.
+              Присоединяйтесь к общению
             </Typography>
           </li>
         </ul>
       </section>
       <section className={classes.loginSide}>
         <div className={classes.loginSideWrapper}>
-          <TwitterIcon color="primary" className={classes.loginSideTwitterIcon} />
+          <TwitterIcon
+            color="primary"
+            className={classes.loginSideTwitterIcon}
+          />
           <Typography
             className={classes.loginSideTitle}
             gutterBottom
@@ -126,7 +147,9 @@ export const SignIn: React.FC = () => {
           </Typography>
           <br />
           <Button
-            // onClick={handleClickOpenSignUp}
+            onClick={() => {
+              setVisibleModal("signUp");
+            }}
             style={{
               marginBottom: 20,
               width: "300px",
@@ -139,7 +162,9 @@ export const SignIn: React.FC = () => {
             Зарегистрироваться
           </Button>
           <Button
-            // onClick={handleClickOpenSignIn}
+            onClick={() => {
+              setVisibleModal("signIn");
+            }}
             style={{
               width: "300px",
               borderRadius: "9999px",
@@ -152,6 +177,21 @@ export const SignIn: React.FC = () => {
           >
             Войти
           </Button>
+          {/* <LoginModal open={visibleModal === 'signIn'}/> */}
+          <RegisterModal
+            open={visibleModal === "signUp"}
+            onClose={() => {
+              setVisibleModal(undefined);
+            }}
+            title="Создайте учетную запись"
+          />
+          <LoginModal
+            open={visibleModal === "signIn"}
+            onClose={() => {
+              setVisibleModal(undefined);
+            }}
+            title="Создайте учетную запись"
+          />
         </div>
       </section>
     </div>
